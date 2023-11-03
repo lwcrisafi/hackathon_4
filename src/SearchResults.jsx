@@ -11,7 +11,7 @@ export default function SearchResults ({searchQuery}){
             const loadSearch = async () => {
                 try{
                     
-                    const response = await fetch (`https://api.unsplash.com/search/photos?query=" + ${searchQuery} + &client_id=${apiKey}`
+                    const response = await fetch (`https://api.unsplash.com/search/photos?query=" + ${searchQuery} + &client_id=${apiKey}&per_page=12`
 
                     );
                     const data = await response.json();
