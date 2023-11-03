@@ -26,16 +26,18 @@ export default function SearchResults ({searchQuery}){
         }
     }, [searchQuery]);
 
-    return(
-        <div>
-            <h2>Search Results</h2>
-            {searchResults.map((results) => (
-                <div key={results.id}>
-                    <h3>{results.alt_description}</h3>
-                    <img src={results.urls.small} alt={results.alt_description} />
-                    </div>
-            ))}
-          
+    return (
+      <div className="search_results_container">
+        <h2>Search Results</h2>
+        <br />
+        <div className="search-mini">
+          {searchResults.map((results) => (
+            <div className="image_container" key={results.id}>
+              <h3>{results.alt_description}</h3>
+              <img src={results.urls.small} alt={results.alt_description} />
+            </div>
+          ))}
         </div>
+      </div>
     );
 }
