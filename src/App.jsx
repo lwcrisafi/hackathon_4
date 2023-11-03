@@ -15,17 +15,16 @@ function App() {
   const AUTHOR_USERNAME = "itsaroadmap";
 
   return (
-    
+    <BrowserRouter>
       <>
         <Homepage />
         <div>
-            <SearchResultsSwitch/>
           <SearchBar onSearch={handleSearch} />
           <SearchResults searchQuery={searchQuery} />
         </div>
         <RoutesSwitch AUTHOR_USERNAME={AUTHOR_USERNAME} />
       </>
-    
+    </BrowserRouter>
   );
 }
 
