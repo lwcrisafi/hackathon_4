@@ -8,6 +8,7 @@ export default function Homepage() {
       <h1 className="homepage_headline">
         Searchazar: The #1 Image Search Site on the Planet
       </h1>
+
       {/* <SearchResultsSwitch/> */}
     </>
   );
