@@ -4,8 +4,7 @@ import Homepage from "./Homepage";
 import { BrowserRouter } from "react-router-dom";
 import SearchResults from "./SearchResults";
 import SearchBar from "./Searchbar";
-import AuthorDetail from "./AuthorDetails";
-import SearchResultsSwitch from "./SearchResultsSwitch";
+import RoutesSwitch from "./RoutesSwitch";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -13,6 +12,7 @@ function App() {
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
+  const AUTHOR_USERNAME = "itsaroadmap";
 
   return (
     
@@ -23,6 +23,7 @@ function App() {
           <SearchBar onSearch={handleSearch} />
           <SearchResults searchQuery={searchQuery} />
         </div>
+        <RoutesSwitch AUTHOR_USERNAME={AUTHOR_USERNAME} />
       </>
     
   );
