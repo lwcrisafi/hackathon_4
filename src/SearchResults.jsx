@@ -1,9 +1,11 @@
 import {useState, useEffect} from "react"
 import keys from "../keys";
+// import { Link } from "react-router-dom";
 
 export default function SearchResults ({searchQuery}){
     const [searchResults, setSearchResults]= useState([]);
     const apiKey= keys.YOUR_ACCESS_KEY;
+    const [page, setPage] = useState (1);
 
     useEffect(() => {
         if (searchQuery) {
@@ -11,7 +13,7 @@ export default function SearchResults ({searchQuery}){
             const loadSearch = async () => {
                 try{
                     
-                    const response = await fetch (`https://api.unsplash.com/search/photos?query=" + ${searchQuery} + &client_id=${apiKey}&per_page=12`
+                    const response = await fetch (`https://api.unsplash.com/search/photos?query=" + ${searchQuery} + &client_id=${apiKey}&per_page=12&page=${page}`
 
                     );
                     const data = await response.json();
@@ -23,21 +25,37 @@ export default function SearchResults ({searchQuery}){
                 
             };
             loadSearch();
+            
         }
-    }, [searchQuery]);
+    }, [searchQuery,page]);
 
+    const handleLoadMore = () =>{
+        setPage(page +1);
+    };
+    const handleLoadPrevious = () =>{
+        setPage(page - 1);
+    }
     return (
       <div className="search_results_container">
         <h2>Search Results</h2>
-        <br />
         <div className="search-mini">
           {searchResults.map((results) => (
             <div className="image_container" key={results.id}>
-              <h3>{results.alt_description}</h3>
+              {/* <h3>Author: <Link to={`/authordetail/${results.user.username}`}>{results.user.name}</Link></h3> */}
+              <p>Description: {results.alt_description}</p>
               <img src={results.urls.small} alt={results.alt_description} />
             </div>
           ))}
         </div>
+        <br />
+        <div className="button_div">
+            <button onClick={handleLoadPrevious} disabled={page === 1}>
+              Previous
+            </button>
+            <button onClick={handleLoadMore}> Next</button>
+        </div>
+        <br />
+        Current Page: {page}
       </div>
     );
 }
