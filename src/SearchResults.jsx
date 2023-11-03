@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import keys from './keys';
+// import { Link } from "react-router-dom";
 
 export default function SearchResults ({searchQuery}){
     const [searchResults, setSearchResults]= useState([]);
@@ -39,7 +40,7 @@ export default function SearchResults ({searchQuery}){
             <h2>Search Results</h2>
             {searchResults.map((results) => (
                 <div key={results.id}>
-                    <h3>Author: {results.user.name}</h3>
+                    {/* <h3>Author: <Link to={`/authordetail/${results.user.username}`}>{results.user.name}</Link></h3> */}
                     <p>Description: {results.alt_description}</p>
                     <img src={results.urls.small} alt={results.alt_description} />
                     </div>
