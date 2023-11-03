@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import keys from "../keys";
+import keys from "./keys";
 import { useParams } from "react-router-dom";
 
 export default function AuthorDetail({ YOUR_ACCESS_KEY }) {
