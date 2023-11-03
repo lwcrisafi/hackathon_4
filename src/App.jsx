@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import SearchResults from "./SearchResults";
 import SearchBar from "./Searchbar";
 import AuthorDetail from "./AuthorDetails";
+import SearchResultsSwitch from "./SearchResultsSwitch";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,15 +15,16 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    
       <>
         <Homepage />
         <div>
+            <SearchResultsSwitch/>
           <SearchBar onSearch={handleSearch} />
           <SearchResults searchQuery={searchQuery} />
         </div>
       </>
-    </BrowserRouter>
+    
   );
 }
 

@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import keys from './keys';
+import keys from "../keys";
 
 export default function SearchResults ({searchQuery}){
     const [searchResults, setSearchResults]= useState([]);

@@ -14,8 +14,6 @@ export default function SearchBar(props){
               />
               <br/>
               <button onClick={handleSearch}>Search</button>
-
-            
         </div>
     );
 }

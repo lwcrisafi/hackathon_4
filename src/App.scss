@@ -18,6 +18,7 @@ html {
 
 body {
   background: linear-gradient(to bottom, rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%,rgba(6,109,171,1) 100%);
+  height: 100vh;
 }
 
 ul {
@@ -26,6 +27,11 @@ ul {
 }
 
 div {
+  color: $zimablue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  width: fit-content;
+  padding: 1rem;
   background: linear-gradient(
     to bottom,
     #fcecfc 0%,
@@ -39,6 +45,9 @@ div {
 }
 
 button {
+  color: $zimablue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   border: 1px solid $zimablue;
   background: linear-gradient(
     to bottom,
@@ -93,16 +102,19 @@ h1, h2, h3 {
 }
 
 img {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 0.3s;
+  opacity: 1;
+  cursor: pointer;
 }
 
 /* Define the hover state to reveal the image */
 img:hover {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  opacity: 0.8;
 }
 
 input {
+  color: $zimablue;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   /* Reset the border */
   border: none;
   border-radius: 20px;

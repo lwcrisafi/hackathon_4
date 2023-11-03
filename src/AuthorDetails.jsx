@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import keys from "./keys";
+import keys from "../keys";
 
 export default function AuthorDetail({ AUTHOR_USERNAME, YOUR_ACCESS_KEY }) {
   const [authorData, setAuthorData] = useState(null);
