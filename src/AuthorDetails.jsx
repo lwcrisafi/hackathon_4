@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import App from "./App";
+import keys from "./keys";
 
 export default function AuthorDetail({ AUTHOR_USERNAME, YOUR_ACCESS_KEY }) {
   const [authorData, setAuthorData] = useState(null);
@@ -11,13 +11,13 @@ export default function AuthorDetail({ AUTHOR_USERNAME, YOUR_ACCESS_KEY }) {
       try {
         // Fetch author's information
         const infoResponse = await fetch(
-          `https://api.unsplash.com/users/${AUTHOR_USERNAME}/photos?client_id=${YOUR_ACCESS_KEY}`
+          `https://api.unsplash.com/users/${AUTHOR_USERNAME}?client_id=${keys.YOUR_ACCESS_KEY}`
         );
         const authorData = await infoResponse.json();
-        console.log(authorData); 
+        // console.log(authorData); 
         // Fetch author's images
         const imagesResponse = await fetch(
-          `https://api.unsplash.com/users/${AUTHOR_USERNAME}/photos?client_id=${YOUR_ACCESS_KEY}`
+          `https://api.unsplash.com/users/${AUTHOR_USERNAME}/photos?client_id=${keys.YOUR_ACCESS_KEY}`
         );
         const authorImages = await imagesResponse.json();
 
@@ -40,28 +40,30 @@ export default function AuthorDetail({ AUTHOR_USERNAME, YOUR_ACCESS_KEY }) {
   }
 
   return (
-    <div>
-
-      <div className="author-details">
-        <h1>{authorData.name}</h1>
-        <h3>{authorData.username}</h3>
-        <p>Downloads: {authorData.downloads}</p>
-        <p>&#128420;Likes: {authorData.total_likes}</p>
-      </div>
-
-      <div className="author-images">
-            {authorImages.map((image, index) => (
-            <div key={index}>
-                <img src={image.urls.small} alt={image.alt_description} />
-
-      <p>Description: {image.alt_description}</p>
-
+  <div>
+    <div className="author-details">
+      <h1>{authorData.name}</h1>
+      <h3>{authorData.username}</h3>
+      <p>Downloads: {authorData.downloads}</p>
+      <p>&#128420; Likes: {authorData.total_likes}</p>
     </div>
-  ))}
-</div>
-</div>
-  );
-}
+
+    <div className="author-images">
+      {authorImages.map((image, index) => {
+        if (index < 3) {
+          return (
+            <div key={index}>
+              <img src={image.urls.small} alt={image.alt_description} />
+              <p>Description: {image.alt_description}</p>
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
+  </div>
+);
+    }
   
   
 
