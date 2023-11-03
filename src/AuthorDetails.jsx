@@ -15,13 +15,13 @@ export default function AuthorDetail({ YOUR_ACCESS_KEY }) {
       try {
         // Fetch author's information
         const infoResponse = await fetch(
-          `https://api.unsplash.com/users/${AUTHOR_USERNAME}?client_id=${keys.YOUR_ACCESS_KEY}`
+          `https://api.unsplash.com/users/${username}?client_id=${keys.YOUR_ACCESS_KEY}`
         );
         const authorData = await infoResponse.json();
         // console.log(authorData);
         // Fetch author's images
         const imagesResponse = await fetch(
-          `https://api.unsplash.com/users/${AUTHOR_USERNAME}/photos?client_id=${keys.YOUR_ACCESS_KEY}`
+          `https://api.unsplash.com/users/${username}/photos?client_id=${keys.YOUR_ACCESS_KEY}`
         );
         const authorImages = await imagesResponse.json();
 
@@ -55,10 +55,9 @@ export default function AuthorDetail({ YOUR_ACCESS_KEY }) {
     return <div>Loading...</div>;
   }
 
- const startImageIndex = (currentPage - 1) * imagesPerPage;
- const endImageIndex = startImageIndex + imagesPerPage;
- const currentImages = authorImages.slice(startImageIndex, endImageIndex);
-
+  const startImageIndex = (currentPage - 1) * imagesPerPage;
+  const endImageIndex = startImageIndex + imagesPerPage;
+  const currentImages = authorImages.slice(startImageIndex, endImageIndex);
 
   return (
     <div>
@@ -97,11 +96,3 @@ export default function AuthorDetail({ YOUR_ACCESS_KEY }) {
     </div>
   );
 }
-  
-  
-
-  
-  
-
- 
-
