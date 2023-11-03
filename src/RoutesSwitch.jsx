@@ -3,7 +3,7 @@ import Homepage from "./Homepage";
 import SubpageLayout from "./SubpageLayout";
 import AuthorDetail from "./AuthorDetails";
 
-export default function RoutesSwitch({ AUTHOR_USERNAME }) {
+export default function RoutesSwitch() {
   return (
     <>
       <div className="routes">
@@ -11,10 +11,7 @@ export default function RoutesSwitch({ AUTHOR_USERNAME }) {
           <Route path="/" element={<Homepage />} />
 
           <Route path="/" element={<SubpageLayout />}>
-            <Route
-              path="/author/:AUTHOR_USERNAME"
-              element={<AuthorDetail AUTHOR_USERNAME={AUTHOR_USERNAME} />}
-            />
+            <Route path="/author/:username" element={<AuthorDetail />} />
             <Route path="*" element="404: page not found &#128561;" />
           </Route>
         </Routes>
