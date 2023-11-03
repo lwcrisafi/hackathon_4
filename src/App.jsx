@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import SearchResults from './SearchResults'
 import SearchBar from './Searchbar';
+import AuthorDetail from './AuthorDetails'
 
 function App() {
     const[searchQuery, setSearchQuery] = useState("");
