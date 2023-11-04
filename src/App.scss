@@ -17,8 +17,16 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom, rgba(197,222,234,1) 0%,rgba(138,187,215,1) 31%,rgba(6,109,171,1) 100%);
-  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(197, 222, 234, 1) 0%,
+    rgba(138, 187, 215, 1) 31%,
+    rgba(6, 109, 171, 1) 100%
+  );
+  height: 100%;
+  text-align: center;
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 ul {
@@ -39,16 +47,19 @@ div {
     #fd89d7 51%,
     #ff7cd8 100%
   );
-  border: 1px solid $zimablue;
+  border: 3px solid $zimablue;
   border-radius: 20px;
   box-shadow: 0 10px 13px -7px rgba(0, 0, 0, 0.4), 0 0 5px 2px transparent;
+  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
 button {
+  margin: 0 auto;
   color: $zimablue;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
-  border: 1px solid $zimablue;
+  border: 2px solid $zimablue;
   background: linear-gradient(
     to bottom,
     #bfd255 0%,
@@ -69,6 +80,9 @@ button {
   -webkit-transition-timing-function: ease;
   &:hover {
     transform: scale(1.03);
+    background: $zimablue;
+    color: black;
+    border: #ea5507 2px solid;
   }
 }
 
@@ -97,7 +111,9 @@ button {
 }
 
 /* Apply the animation to all h1 elements */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   animation: colorChange 6s linear infinite;
 }
 
@@ -116,12 +132,14 @@ input {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
   /* Reset the border */
-  border: none;
+  border: $zimablue solid 2px;
   border-radius: 20px;
 
   /* Reset padding */
   padding: 0;
-
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-bottom: 0.5rem;
   background: linear-gradient(
     to bottom,
     #feccb1 0%,
@@ -153,56 +171,66 @@ input {
 }
 
 input:focus {
-  background-color: lightblue; /* Change this to your desired background color */
+  background: linear-gradient(
+    to bottom,
+    #feede3 0%,
+    #fcbb98 50%,
+    #933808 51%,
+    #b3856d 100%
+  ); /* Change this to your desired background color */
   /* You can also add other styles for the focused state here */
   border: 2px solid $zimablue; /* Example: Adding a border when focused */
+  color: white;
 }
 
+.search_results_container {
+  background: linear-gradient(
+    to bottom,
+    #bfd255 0%,
+    #8eb92a 50%,
+    #72aa00 51%,
+    #9ecb2d 100%
+  );
+}
 
+.search_results_container {
+  display: flex;
+  flex-direction: column;
+}
 
-// img {
-//   display: inline-block;
-//   vertical-align: middle;
-//   -webkit-transform: perspective(1px) translateZ(0);
-//   transform: perspective(1px) translateZ(0);
-//   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-//   position: relative;
-//   background: #2098d1;
-//   -webkit-transition-property: color;
-//   transition-property: color;
-//   -webkit-transition-duration: 0.3s;
-//   transition-duration: 0.3s;
-//   &:before {
-//     content: "";
-//     position: absolute;
-//     z-index: -1;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     background: #e1e1e1;
-//     -webkit-transform: scaleX(1);
-//     transform: scaleX(1);
-//     -webkit-transform-origin: 50%;
-//     transform-origin: 50%;
-//     -webkit-transition-property: transform;
-//     transition-property: transform;
-//     -webkit-transition-duration: 0.3s;
-//     transition-duration: 0.3s;
-//     -webkit-transition-timing-function: ease-out;
-//     transition-timing-function: ease-out;
-//   }
-// }
+.search-mini {
+  background: linear-gradient(
+    to bottom,
+    #feccb1 0%,
+    #f17432 50%,
+    #ea5507 51%,
+    #fb955e 100%
+  );
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
-// img:hover,
-// img:focus,
-// img:active {
-//   color: white;
-// }
+.image_container {
+  flex: 0 0 calc(50% - 1rem); /* 50% width with spacing */
+  margin-bottom: 1rem;
+  background: transparent;
+  box-sizing: border-box;
+  border: 3px solid $zimablue;
+  border-radius: 20px;
+  box-shadow: 0 10px 13px -7px rgba(0, 0, 0, 0.4), 0 0 5px 2px transparent;
+  text-align: center;
+}
 
-// img:hover:before,
-// img:focus:before,
-// img:active:before {
-//   -webkit-transform: scaleX(0);
-//   transform: scaleX(0);
-// }
+.image_container h3 {
+  /* Style for the title, if needed */
+}
+
+.image_container img {
+  opacity: 1;
+  cursor: pointer;
+  max-width: 100%; /* Ensure images don't exceed the container width */
+}
+.button_div {
+  display: flex;
+}
